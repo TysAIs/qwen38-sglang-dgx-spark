@@ -11,6 +11,10 @@
 #     fixed model name) can be preserved with a one-line env override.
 #   * GB10 host-level clock cap (nvidia-smi -lgc via a systemd unit) is untouched
 #     and stays in effect — container-level flags do not change SM clocks.
+#     Recommended cap: sudo nvidia-smi -lgc 0,2200 (NOT 2190 — that is stale).
+#   * NOTE: SGLang defaults to thinking ON for reasoning models. For short chat
+#     replies, set chat_template_kwargs thinking:false per request, or the visible
+#     content comes back empty (finish_reason "length"). This is expected, not a bug.
 #   * CPU pinning defaults to GB10's 10 Cortex-X5 cores (5-9,15-19); set CPUSET=""
 #     to disable.
 set -euo pipefail
