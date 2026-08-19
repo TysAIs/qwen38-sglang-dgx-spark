@@ -1,0 +1,20 @@
+# secrets / local state — NEVER commit
+.env
+*.env
+*.env.*
+!*.env.sample
+!*.env.dspark.example
+*.pem
+*.key
+*.p12
+
+# runtime artifacts
+*.log
+.sglang.pid
+.cache/
+results/
+__pycache__/
+*.pyc
+
+# os noise
+.DS_Store
